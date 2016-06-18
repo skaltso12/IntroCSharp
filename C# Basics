@@ -10,25 +10,25 @@ class CSharpBasics
 {
 	static void Main()
 	{
-	//Age in 10 years
+		//Age in 10 years
 		Console.Write("My age = ");
-      double myAge = double.Parse(Console.ReadLine());
-        onsole.WriteLine(myAge + 10);
+      		double myAge = double.Parse(Console.ReadLine());
+        	Console.WriteLine(myAge + 10);
   
-  //Exact time
-    DateTime localDate = DateTime.Now;
-      Console.WriteLine(localDate);
-    //or 
-    Console.WriteLine(DateTime.Now);
+  		//Exact time
+    		DateTime localDate = DateTime.Now;
+	 	Console.WriteLine(localDate);
+    		//or 
+    		Console.WriteLine(DateTime.Now);
     
-  //Sqrt of 12345
-    Console.WriteLine (System.Math.Sqrt(12345));
+  		//Sqrt of 12345
+    		Console.WriteLine (System.Math.Sqrt(12345));
     
-  // Print the first 100 members of the following progressoin: 2, -3, 4, -5, etc
-    for(int i = 0; i <100; i++)
-    {
-      if (i % 2 > 0) Console.WriteLine(-i - 2);
-      else Console.WriteLine(i + 2);
-    }
+  		// Print the first 100 members of the following progressoin: 2, -3, 4, -5, etc
+    		for(int i = 0; i <100; i++)
+    		{
+      			if (i % 2 > 0) Console.WriteLine(-i - 2);
+      			else Console.WriteLine(i + 2);
+    		}
 	}
 }
