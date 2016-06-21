@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+class CSharpVariables
+{
+    static void Main()
+    {
+        //Declate the following variables with the most appropriate type:
+        //52130, -115, 4825932, 97, -10000, 20000; 224; 970700000; 112; 
+        //-44; -1000000; 1990; 123456789123456789;
+        //What value do this variables get with the float, double and decimal types:
+        //34.567839023; 12.345; 8923.1234857; 3456.091124875956542151256683467;
+        //Initialize a variable of type int with a value of 256 in hexadecimal format;
+        //Declare a variable of type char and assign as a value the character, which has Unicode code 72;
+
+        object[] variables = {
+            (ushort)52130,
+                (sbyte)-115,
+                (uint)4825932,
+                (sbyte)97,
+                (short)-10000,
+                (short)20000,
+                (byte)224,
+                (int)970700000,
+                (sbyte)112,
+                (sbyte)-44,
+                (int)-1000000,
+                (short)1990,
+                (long)123456789123456789,
+                34.567839023f,
+                12.345f,
+                8923.1234857f,
+                3456.091124875956542151256683467f,
+                34.567839023d,
+                12.345d,
+                8923.1234857d,
+                3456.091124875956542151256683467d,
+                34.567839023m,
+                12.345m,
+                8923.1234857m,
+                3456.091124875956542151256683467m,
+                0x100,
+                "\u0072"          
+        };
+
+        string[] expressions = {
+             "(ushort)52130",
+                "(sbyte)-115",
+                "(uint)4825932",
+                "(sbyte)97",
+                "(short)-10000",
+                "(short)20000",
+                "(byte)224",
+                "(int)970700000",
+                "(sbyte)112",
+                "(sbyte)-44",
+                "(int)-1000000",
+                "(short)1990",
+                "(long)123456789123456789",
+                "34.567839023f",
+                "12.345f",
+                "8923.1234857f",
+                "3456.091124875956542151256683467f",
+                "34.567839023d",
+                "12.345d",
+                "8923.1234857d",
+                "3456.091124875956542151256683467d",
+                "34.567839023m",
+                "12.345m",
+                "8923.1234857m",
+                "3456.091124875956542151256683467m",
+                "0x100",
+                @"\u0072"
+        };
+
+        for (int i = 0; i < variables.Length; i++)
+        {
+            Console.WriteLine(
+                "The expression "
+                + expressions [i]
+                + " is equal to "
+                + variables [i]
+                + " and is of type "
+                +   variables [i].GetType()                                          
+                );
+        }
+        
+        
+    }
+}  
