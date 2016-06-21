@@ -89,6 +89,76 @@ class CSharpVariables
                 );
         }
         
+        //Declare a variable isMale of type bool and assign a value to it depending on your gender.
         
+        bool isMale = true;
+        if (isMale) Console.WriteLine("Male");
+        else Console.WriteLine("Female");
+        
+        //Declare 2 variables of type string with values "Hello" and "World". Declare a variable of type
+        //object and assign to it the concatination of the the string variables. Declare a third string 
+        //variable and initialize it with the value of the variable of type object (you should use type casting).
+        
+        string hello = "Hello";
+        string world = "World";
+        object helloWorld = hello + " " + world + "!";
+        string helloWorld2 = (string)helloWorld;
+        Console.WriteLine(helloWorld2);
+        
+        //Declare two variables of type string and assign them a value “The "use" of quotations causes difficulties.”. 
+        //In one of the variables use quoted string and in the other do not use it.
+        
+        string quot = @"The ""use"" of quotations causes difficulties.";
+        string esc = "The \"use\" of quotations causes difficulties.";
+        Console.WriteLine(quot);
+        Console.WriteLine(esc);
+        
+        //Gun :D
+        
+        public static void Gun()
+        {
+            Console.WriteLine("___________________________________________________________________");
+            Console.WriteLine("________oooooo_____________________________________________________");
+            Console.WriteLine("_____ooooooooooooooo_______________________________________________");
+            Console.WriteLine("___oooooooooooooooooooooooooooooooo________________________________");
+            Console.WriteLine("_oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo__");
+            Console.WriteLine("_oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+            Console.WriteLine("__ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+            Console.WriteLine("___ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo___");
+            Console.WriteLine("_________oooooooooooooo_____ooo______ooo___________________________");
+            Console.WriteLine("_________oooooooooooooo______oo_____ooo____________________________");
+            Console.WriteLine("_________oooooooooooooo_______o____ooo_____________________________");
+            Console.WriteLine("_________oooooooooooooo___________ooo______________________________");
+            Console.WriteLine("_________ooooooooooooooooooooooooooo_______________________________");
+            Console.WriteLine("_________ooooooooooooooo___________________________________________");
+            Console.WriteLine("__________oooooooooooooo___________________________________________");
+            Console.WriteLine("___________ooooooooooooo___________________________________________");
+            Console.WriteLine("____________oooooooooooo___________________________________________");
+            Console.WriteLine("____________oooooooooooo___________________________________________");
+            Console.WriteLine("____________oooooooooooo___________________________________________");
+            Console.WriteLine("___________________________________________________________________");
+            }      
+            
+        //Declare two variables of type int. Assign to them values 5 and 10 respectively. 
+        //Exchange (swap) their values and print them.
+            
+        int a, b, c;
+        a = 5;
+        b = 10;
+        c = a;
+        a = b;
+        b = c;
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
+        
+        //or
+        
+        int a, b;
+        a = 5;
+        b = 10;
+        b = b - a;
+        a = a + b;
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
     }
 }  
