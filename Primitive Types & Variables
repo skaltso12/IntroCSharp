@@ -9,6 +9,9 @@ class CSharpVariables
 {
     static void Main()
     {
+    
+        WriteTriangle(9);
+        
         //Declate the following variables with the most appropriate type:
         //52130, -115, 4825932, 97, -10000, 20000; 224; 970700000; 112; 
         //-44; -1000000; 1990; 123456789123456789;
@@ -160,5 +163,27 @@ class CSharpVariables
         a = a + b;
         Console.WriteLine("a = " + a);
         Console.WriteLine("b = " + b);
+        
+        //Write a program that prints on the console isosceles triangle which sides consist of the copyright character "©".
+        
+        public static void WriteTriangle(int baseLength)
+        {
+            char symb = '\u00A9';
+            string blank = "__";
+            int i;
+
+            for (int nRow = 0; nRow < baseLength; nRow++)
+            {
+                i = (nRow < baseLength / 2) ? nRow : baseLength - nRow - 1;
+                Console.Write(symb); 
+                for (int j = 0; j < i - 1; j++)
+                {
+                    Console.Write(blank);
+                }        
+                if (i > 0)
+                    Console.Write(symb);           
+                Console.WriteLine();
+            }
+        }   
     }
 }  
