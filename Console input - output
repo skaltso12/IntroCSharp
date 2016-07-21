@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
+
+namespace HelloCSharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*3.A given company has name, address, phone number, fax number, web site and manager.
+             * The manager has name, surname and phone number.Write a program that reads information 
+             * about the company and its manager and then prints it on the console.
+             */
+
+
+            Console.WriteLine(
+                "This is a program that prints the name, address, phone number, fax number, \nweb site and manager's details when entered.");
+            Console.WriteLine("Please enter : ");
+            Console.Write("name : ");
+            string name = Console.ReadLine();
+            Console.Write("address : ");
+            string address = Console.ReadLine();
+            Console.Write("phone number : ");
+            string phoneNumber = Console.ReadLine();
+            Console.Write("fax number : ");
+            string faxNumber = Console.ReadLine();
+            Console.Write("web site : ");
+            string webSite = Console.ReadLine();
+            Console.Write("Manager's name and surname : ");
+            string nameSurname = Console.ReadLine();
+            Console.Write("Manager's phone number : ");
+            string managerPhoneNum = Console.ReadLine();
+
+            Console.WriteLine("Information about {0}", name);
+            Console.WriteLine("Address : {0}, Phone number : {1}, Fax Number : {2}, Web Site : {3}, Manager : {4}, Manager's Number : {5}", address, phoneNumber, faxNumber, webSite, nameSurname, managerPhoneNum);
+
+            /*4.Write a program that prints three numbers in three virtual columns on the console.
+             * Each column should have a width of 10 characters and the numbers should be left aligned. 
+             * The first number should be an integer in hexadecimal; the second should be fractional positive; 
+             * and the third – a negative fraction.The last two numbers have to be rounded to the second decimal place.
+             */
+
+            int hexNum;
+            double posFractNum, fractNum;
+
+            hexNum = 2013;
+            Console.Write("|0x{0,-8:X}|", hexNum);
+            posFractNum = 2.243234;
+            Console.Write("|{0,-10:f2}|", posFractNum);
+            fractNum = -1.856;
+            Console.Write("|{0,-10:f2}|", fractNum);
+            Console.WriteLine();
+        }
+    }
+}
