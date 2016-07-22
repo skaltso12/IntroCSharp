@@ -55,6 +55,121 @@ namespace HelloCSharp
             fractNum = -1.856;
             Console.Write("|{0,-10:f2}|", fractNum);
             Console.WriteLine();
+            
+            /*5.Write a program that reads from the console two integer numbers (int) and 
+             * prints how many numbers between them exist, such that the remainder of 
+             * their division by 5 is 0.Example: in the range (14, 25) there are 3 such numbers: 15, 20 and 25.
+             */
+
+            int firstInt, secondInt;
+            int allNumbers;
+
+            do
+            {
+                Console.WriteLine("Task 5: Numbers divisible by 5 in a given range.");
+                Console.WriteLine("Please enter a smaller integer first!!!");
+                Console.Write("Enter first Integer : ");
+                firstInt = int.Parse(Console.ReadLine());
+                Console.Write("Enter second Integer : ");
+                secondInt = int.Parse(Console.ReadLine());
+
+                if (firstInt >= secondInt)
+                {
+                    Console.WriteLine("The first integer is bigger than/ equal to the second. Please try again.");
+                }
+                else
+                {
+                    allNumbers = (secondInt - firstInt + 4) / 5;
+                    Console.Write("In the range ({0}, {1}) there are {2} such numbers: ", firstInt, secondInt, allNumbers);
+                    for (int i = firstInt; i <= secondInt; i++)
+                    {
+                        if (i % 5 == 0)
+                        {
+                            Console.Write(i + "; ");
+                        }
+                    }
+                }
+                Console.WriteLine("Enter first Integer = 0 to quit.");
+                Console.WriteLine();
+            } while (firstInt != 0);
+            
+            /*6.     Write a program that reads two numbers from the console and prints the greater of them. 
+             * Solve the problem without using conditional statements.
+             */
+
+            Console.WriteLine("Task 6: Printing out the greater from two numbers.");
+
+            int a, b;
+
+            do
+            {
+                Console.Write("a (integer) = ");
+                a = int.Parse(Console.ReadLine());
+                Console.Write("b (integer) = ");
+                b = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("The greater number is : {0}.", Math.Max(a, b));
+                Console.WriteLine("The smaller number is : {0}.", Math.Min(a, b));
+                
+                //OR
+                
+                Console.WriteLine((a > b) ? a : b); 
+                
+                //OR
+                
+                Console.WriteLine("Greater: {0}", (a + b + Math.Abs(a - b)) / 2);
+                Console.WriteLine("Smaller: {0}", (a + b - Math.Abs(a - b)) / 2);
+                
+                
+                Console.WriteLine("Write a = 0 to quit.");
+            } while (a !=0);
+            
+            /* 7.     Write a program that reads five integer numbers and prints their sum. 
+             * If an invalid number is entered the program should prompt the user to enter another number.
+             */
+
+            string a, b, c, d, e;
+            int A, B, C, D, E;
+            bool parseA, parseB, parseC, parseD, parseE;
+
+            do
+            {
+                Console.WriteLine("Task 7: Printing the sum of 5 integers.");
+                Console.WriteLine("Please enter 5 integers : ");
+                do
+                {
+                    Console.Write("a = ");
+                    a = Console.ReadLine();
+                    parseA = Int32.TryParse(a, out A);
+                } while (parseA != true);
+                do
+                {
+                    Console.Write("b = ");
+                    b = Console.ReadLine();
+                    parseB = Int32.TryParse(b, out B);
+                } while (parseB != true);
+                do
+                {
+                    Console.Write("c = ");
+                    c = Console.ReadLine();
+                    parseC = Int32.TryParse(c, out C);
+                } while (parseC != true);
+                do
+                {
+                    Console.Write("d = ");
+                    d = Console.ReadLine();
+                    parseD = Int32.TryParse(d, out D);
+                } while (parseD != true);
+                do
+                {
+                    Console.Write("e = ");
+                    e = Console.ReadLine();
+                    parseE = Int32.TryParse(e, out E);
+                } while (parseE != true);
+                Console.WriteLine("The sum of the 5 integers is : {0}", A + B + C + D + E);
+                Console.WriteLine("Enter a = 0 to quit.");
+
+            } while (A != 0);
         }
     }
 }
