@@ -73,13 +73,20 @@ namespace HelloCSharp
                 Console.Write("Enter second Integer : ");
                 secondInt = int.Parse(Console.ReadLine());
 
-                if (firstInt >= secondInt)
+                if (firstInt > secondInt)
                 {
-                    Console.WriteLine("The first integer is bigger than/ equal to the second. Please try again.");
+                    changeInt = firstInt;
+                    firstInt = secondInt;
+                    secondInt = changeInt;
                 }
-                else
+                if (firstInt % 5 == 0 || secondInt % 5 == 0)
                 {
-                    allNumbers = (secondInt - firstInt + 4) / 5;
+                    allNumbers = (secondInt - firstInt) / 5 + 1;
+                }         
+                    else
+                {
+                    allNumbers = (secondInt - firstInt) / 5;
+                }
                     Console.Write("In the range ({0}, {1}) there are {2} such numbers: ", firstInt, secondInt, allNumbers);
                     for (int i = firstInt; i <= secondInt; i++)
                     {
@@ -88,7 +95,7 @@ namespace HelloCSharp
                             Console.Write(i + "; ");
                         }
                     }
-                }
+                Console.Writeline();
                 Console.WriteLine("Enter first Integer = 0 to quit.");
                 Console.WriteLine();
             } while (firstInt != 0);
