@@ -181,6 +181,74 @@ namespace HelloCSharp
                 Console.WriteLine("Enter a = 0 to quit.");
 
             } while (A != 0);
+            
+            /* 9.     Write a program that reads an integer number n from the console. 
+             * After that reads n numbers from the console, prints their sum and the greatest from them.
+             */
+
+            Console.WriteLine(
+          "Task 9: Validate and calculate numbers");
+
+            double x, sum = 0, max = 0;
+            uint count, n;
+            bool isValid, isValid2;
+
+            do
+            {
+                Console.Write("Input n : ");
+                isValid2 = uint.TryParse(Console.ReadLine(), out n);
+            } while (isValid2 != true);
+            count = n;
+            do
+            {
+                Console.Write("Input a real number = ");
+                isValid = double.TryParse(Console.ReadLine(), out x);
+                if (isValid)
+                {
+                    sum += x;
+                    max = (max < x || count == n ? x : max);
+                    count--;
+                }
+                else
+                    Console.WriteLine("Invalid number. Try another one!");
+            }
+            while (count > 0);
+
+            Console.WriteLine("Sum = " + sum);
+            Console.WriteLine("Max = " + max);
+            
+            /* 10.   Write a program that reads an integer number n from the console and 
+             * prints all numbers in the range [1…n], each on a separate line.
+             */
+
+            Console.WriteLine(
+          "Task 10: Print numbers.");
+
+            uint n;
+            bool isValid2;
+
+            do
+            {
+                Console.Write("Input n : ");
+                isValid2 = uint.TryParse(Console.ReadLine(), out n);
+            } while (isValid2 != true);
+            for (int i = 1; i <= n; i++)
+                Console.WriteLine(i);
+            
+            /* 11.   Write a program that prints on the console the first 100 numbers 
+             * in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, …
+             */
+
+            ulong a = 0, b = 1, c;
+
+            Console.WriteLine("0, \n1, ");
+            for (int i = 3; i <= 100; i++)
+            {
+                c = a + b;
+                Console.WriteLine("{0:n0}, ", c);
+                b = a;
+                a = c;             
+            }
         }
     }
 }
