@@ -61,13 +61,12 @@ namespace HelloCSharp
              * their division by 5 is 0.Example: in the range (14, 25) there are 3 such numbers: 15, 20 and 25.
              */
 
-            int firstInt, secondInt;
+            int firstInt, secondInt, changeInt;
             int allNumbers;
 
             do
             {
                 Console.WriteLine("Task 5: Numbers divisible by 5 in a given range.");
-                Console.WriteLine("Please enter a smaller integer first!!!");
                 Console.Write("Enter first Integer : ");
                 firstInt = int.Parse(Console.ReadLine());
                 Console.Write("Enter second Integer : ");
@@ -79,15 +78,20 @@ namespace HelloCSharp
                     firstInt = secondInt;
                     secondInt = changeInt;
                 }
-                if (firstInt % 5 == 0 || secondInt % 5 == 0)
+                if (0 < firstInt && firstInt % 5 != 0)
                 {
-                    allNumbers = (secondInt - firstInt) / 5 + 1;
-                }         
-                    else
-                {
-                    allNumbers = (secondInt - firstInt) / 5;
+                    allNumbers = secondInt / 5 - firstInt / 5;
                 }
-                    Console.Write("In the range ({0}, {1}) there are {2} such numbers: ", firstInt, secondInt, allNumbers);
+                else if (secondInt < 0 && secondInt % 5 != 0)
+                {
+                    allNumbers = secondInt / 5 - firstInt / 5;
+                }
+                else
+                {
+                    allNumbers = secondInt / 5 - firstInt / 5 + 1;
+                }
+
+                Console.Write("In the range ({0}, {1}) there are {2} such numbers: ", firstInt, secondInt, allNumbers);
                     for (int i = firstInt; i <= secondInt; i++)
                     {
                         if (i % 5 == 0)
@@ -95,7 +99,7 @@ namespace HelloCSharp
                             Console.Write(i + "; ");
                         }
                     }
-                Console.Writeline();
+                Console.WriteLine();       
                 Console.WriteLine("Enter first Integer = 0 to quit.");
                 Console.WriteLine();
             } while (firstInt != 0);
