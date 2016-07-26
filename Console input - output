@@ -239,16 +239,42 @@ namespace HelloCSharp
              * in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, …
              */
 
-            ulong a = 0, b = 1, c;
+            Console.WriteLine("The first 100 Fibonacci numbers.");
 
-            Console.WriteLine("0, \n1, ");
+            decimal a = 0, b = 1, c;
+
+            Console.WriteLine("{1,10}.{0,30:n0};", a, 1);
+            Console.WriteLine("{1,10}.{0,30:n0};", b, 2);
             for (int i = 3; i <= 100; i++)
             {
                 c = a + b;
-                Console.WriteLine("{0:n0}, ", c);
-                b = a;
-                a = c;             
+                Console.WriteLine("{1,10}.{0,30:n0}; ", c, i);
+                a = b;
+                b = c;             
             }
+            
+            /* 12.Write a program that calculates the sum (with precision of 0.001) of 
+             * the following sequence: 1 + 1 / 2 - 1 / 3 + 1 / 4 - 1 / 5 + …
+             */
+
+            double oldSum = 1, newSum, old_Sum;
+            int i = 1;
+
+            do
+            {
+                i++;
+                if (i % 2 == 0)
+                {
+                    newSum = oldSum + (1.0 / i);
+                }
+                else
+                {
+                    newSum = oldSum - (1.0 / i);
+                }
+                old_Sum = oldSum;
+                oldSum = newSum;            
+            } while (Math.Abs(newSum - old_Sum) >= 0.001);
+            Console.WriteLine("{0:n3}", newSum);
         }
     }
 }
