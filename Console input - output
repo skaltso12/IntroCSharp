@@ -182,6 +182,36 @@ namespace HelloCSharp
 
             } while (A != 0);
             
+            /* 8.Write a program that reads the coefficients a, b and c 
+             * from the console and prints the solutions to the
+             * quadric equasion ax^2 + bx + c = 0.
+             */
+
+            double a, b, c, d;
+
+            Console.WriteLine("Task 8 : Solving a quadratic equasion.");
+            Console.Write("Enter a = ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Enter b = ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("Enter c = ");
+            c = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("The solution to the equasion ({0})x^2 + ({1})x + ({2}) : ", a, b, c);
+            d = b * b - 4 * a * c;
+            if (d > 0)
+            {
+                double x1 = (-b + Math.Sqrt(d)) / (2 * a), x2 = (-b - Math.Sqrt(d)) / (2 * a);
+                Console.WriteLine("x1 = {0:f4}; x2 = {1:f4};", x1, x2);
+            }
+            else if (d == 0)
+            {
+                double x = -b / (2 * a);
+                Console.WriteLine("x1 = x2 = {0:f4};", x);
+            }
+            else
+                Console.WriteLine("The equasion does not have solutions.");
+            
             /* 9.     Write a program that reads an integer number n from the console. 
              * After that reads n numbers from the console, prints their sum and the greatest from them.
              */
