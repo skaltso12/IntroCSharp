@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
+
+namespace HelloCSharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        // Sum of numbers from 1 to n
+            int sum = 0;
+            int count = 1;
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("The sum 1");
+
+            while (count <= n)
+            {
+                sum += count;
+                count++;
+                if (count <= n)
+                {
+                    Console.Write(" + " + count);
+                }
+            }
+            Console.WriteLine(" = " + sum);
+            
+            // N prime or not
+            bool prime = true;
+            int remain = 1;
+            int count = 2;
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            while (remain != 0 && count < n)
+            {
+                remain = n % count;
+                if (remain == 0)
+                {
+                    Console.WriteLine("The number {0} is not a prime number.", n);
+                    prime = false;
+                }
+                count++;
+            }
+            if (prime)
+            {
+                Console.WriteLine("The number {0} is a prime number.", n);
+            }
+            
+            
+        }
+    }
+}
