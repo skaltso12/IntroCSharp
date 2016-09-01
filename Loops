@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Globalization;
+using System.Numerics;
 
 namespace HelloCSharp
 {
@@ -51,6 +52,66 @@ namespace HelloCSharp
             {
                 Console.WriteLine("The number {0} is a prime number.", n);
             }
+            
+            //Factorial of a large number
+            int n = int.Parse(Console.ReadLine());
+            BigInteger factorial = 1;
+            // Perform an "infinite loop"
+            while (true)
+            {
+                if (n <= 1)
+                {
+                    break;
+                }
+                factorial *= n;
+                n--;
+            }
+            Console.WriteLine("n! = " + factorial);
+            
+            //Product of numbers from m to n
+            Console.Write("m = ");
+            int m = int.Parse(Console.ReadLine());
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+            decimal product = 1;
+            do
+            {
+                product *= n;
+                n--;
+            } while (n >= m);
+            Console.WriteLine("Product of numbers from m to n = " + product);
+            
+            /* 1.    Write a program that prints on the console the numbers from 1 to N. 
+             * The number N should be read from the standard input.
+             */
+
+            Console.WriteLine("Task 1 : Printing numbers from 1 to n.");
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(" " + i);
+            }
+            Console.WriteLine();
+            
+            /* 2.    Write a program that prints on the console the numbers from 1 to N, 
+             * which are not divisible by 3 and 7 simultaneously. The number N should be read from the standard input.      
+             */
+
+            Console.WriteLine("Task 2 : Printing numbers from 1 to n, not divisible by 3 and 7 simultaneously.");
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 21 == 0)
+                {
+                    continue;
+                }
+                Console.Write(" " + i);
+            }
+            Console.WriteLine();
             
             
         }
