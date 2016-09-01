@@ -113,7 +113,81 @@ namespace HelloCSharp
             }
             Console.WriteLine();
             
+            /* 5.    Write a program that reads from the console number N and print the sum of the first N members of the 
+             * Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, …
+             */
+
+            Console.WriteLine("Task 5 : Printing the sum of the first n numbers of the Fibonacci sequence.");
+
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            switch (n)
+            {
+                case 1: Console.WriteLine("0"); break;
+                case 2: Console.WriteLine("0 + 1 = 1"); break;
+                default: Console.Write("0 + 1"); break;
+            }
+
+            int firstVar = 0, secondVar = 1, thirdVar, sum = 1;
+
+            for (int i = 3; i <= n; i++)
+            {
+                thirdVar = firstVar + secondVar;
+                Console.Write(" + " + thirdVar);
+                sum += thirdVar;
+                firstVar = secondVar;
+                secondVar = thirdVar;
+            }
+            Console.Write(" = " + sum);
+            Console.WriteLine();
             
+            /* 6.    Write a program that calculates N!/K! for given N and K (1<K<N).
+             */
+
+            Console.WriteLine("Task 6 : Calculating N!/K!.");
+
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.Write("k = ");
+            int k = int.Parse(Console.ReadLine());
+
+            int nFactoriel = 1, kFactoriel = 1;
+
+            if (k < n && 0 < k)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    nFactoriel *= i;
+                }
+                for (int i = 1; i <= k; i++)
+                {
+                    kFactoriel *= i;
+                }
+                Console.WriteLine("N!/K! = " + nFactoriel / kFactoriel);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
+            
+            //OR
+            
+            int Factorial = 1;
+
+            if (k < n && 0 < k)
+            {
+                for (int i = k + 1; i <= n; i++)
+                {
+                    Factorial *= i;
+                }
+                Console.WriteLine("N!/K! = " + Factorial);     
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
         }
     }
 }
