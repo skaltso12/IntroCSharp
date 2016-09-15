@@ -188,6 +188,102 @@ namespace HelloCSharp
             {
                 Console.WriteLine("Invalid input.");
             }
+            
+            /* 7.    Write a program that calculates N!*K!/(N-K)! for given N and K (1<K<N).
+             */
+
+            Console.WriteLine("Task 7 : Calculating N!*K!/(N-K)!.");
+
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.Write("k = ");
+            int k = int.Parse(Console.ReadLine());
+
+            int nFactoriel = 1, kFactoriel = 1, dFactoriel = 1;
+
+            if (k < n && 1 < k)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    nFactoriel *= i;
+                }
+                for (int i = 1; i <= k; i++)
+                {
+                    kFactoriel *= i;
+                }
+                for (int i = 1; i <= n - k; i++)
+                {
+                    dFactoriel *= i;
+                }
+                Console.WriteLine("N!*K!/(N-K)! = " + nFactoriel * kFactoriel / dFactoriel);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
+            
+            /* 9.    Write a program that for a given integers n and x, calculates the sum:
+             *       S = 1 + 1!/x + 2!/x^2 + ... + n!/x^n.
+             */
+
+            Console.WriteLine("Task 9 : Calculating the sum S = 1 + 1!/x + 2!/x^2 + ... + n!/x^n");
+
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.Write("x = ");
+            int x = int.Parse(Console.ReadLine());
+            
+            decimal sum = 1, factorial = 1, power = 1;
+
+            if (0 < n)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    factorial *= i;
+                    power *= x;
+                    sum += (factorial / power);
+                }
+                Console.WriteLine("The sum S = 1 + 1!/x + 2!/x^2 + ... + n!/x^n for n = {0} and x = {1} is {2}", n, x, sum);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter n > 0.");
+            }
+            
+            /* 10.   Write a program that reads from the console a positive integer number 
+             * N (N < 20) and prints a matrix of numbers as on the figures below:
+             * 1 2 3
+             * 2 3 4
+             * 3 4 5
+             * N=4
+             * 1 2 3 4
+             * 2 3 4 5
+             * 3 4 5 6
+             * 4 5 6 7
+             */
+
+            Console.WriteLine("Task 10 : Printing a matrix.");
+
+            Console.Write("n (0 - 20) = ");
+            int n = int.Parse(Console.ReadLine());
+
+            if ( 0 < n && n < 20)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    for (int k = i; k <= i + n - 1; k++)
+                    {
+                        Console.Write("{0,2} ", k);
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 0 < n < 20.");
+            }
         }
     }
 }
