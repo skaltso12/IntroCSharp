@@ -285,6 +285,55 @@ namespace HelloCSharp
                 Console.WriteLine("Invalid input. Please enter 0 < n < 20.");
             }
             
+            /* 11.   Write a program that calculates with how many zeroes 
+             * the factorial of a given number ends. Examples:
+             * N = 10 -> N! = 3628800 -> 2
+             * N = 20 -> N! = 2432902008176640000 -> 4
+             */
+
+            Console.WriteLine("Task 11 : Factorial zeroes.");
+
+            Console.Write("Enter n = ");
+            int n = int.Parse(Console.ReadLine());
+            BigInteger factorial = 1;
+            int numberOfZeroes = 0;
+            int m = n;
+
+            while (true)
+            {
+                if (n <= 1)
+                {
+                    break;
+                }
+                factorial *= n;
+                n--;
+            }
+            do
+            {
+                if (factorial % 10 == 0)
+                {
+                    numberOfZeroes += 1;
+                }
+                factorial = factorial / 10;
+            } while (factorial % 10 == 0);
+            Console.WriteLine("The number of zeroes in {0}! is {1}.", m, numberOfZeroes);
+            
+            //OR
+            
+            int n = int.Parse(Console.ReadLine());
+            int five = 5;
+            int sum = 0;
+            int deviding = 1;
+           
+            while (deviding > 0)
+            {
+                sum = sum + n / five;
+                deviding = n / five;
+                five = five * 5;
+            }
+
+            System.Console.WriteLine(sum);         
+
             
         }
     }
