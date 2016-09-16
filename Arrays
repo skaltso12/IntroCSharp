@@ -25,7 +25,88 @@ namespace HelloCSharp
                 array[i] = i * 5;
                 Console.Write(" " + array[i]);
             }
+            
+            /* 2.    Write a program, which reads two arrays from the console and checks whether 
+             * they are equal (two arrays are equal when they are of equal length and all of their elements, 
+             * which have the same index, are equal).
+             */
 
+            Console.Write("Enter n for first array's lenght: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int[] arr = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Element {0} = ", i);
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.Write("Enter m for second array's lenght: ");
+            int m = int.Parse(Console.ReadLine());
+
+            int[] arr1 = new int[n];
+
+            for (int k = 0; k < m; k++)
+            {
+                Console.Write("Element {0} = ", k);
+                arr1[k] = int.Parse(Console.ReadLine());
+            }
+
+            bool equal = true;
+
+            if (m != n)
+            {
+                equal = false;
+            }
+            else
+            {
+                for(int i = 0; i < n; i++)
+                {
+                    if (arr[i] != arr1[i])
+                    equal = false;
+                    break;
+                }
+            }
+            Console.WriteLine("The two arrays are equal: {0}", equal);
+            
+            /* 4.    Write a program, which finds the maximal sequence of consecutive equal 
+             * elements in an array. E.g.: {1, 1, 2, 3, 2, 2, 2, 1} à {2, 2, 2}.
+             */
+
+            Console.Write("Enter n for array's lenght: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int[] arr = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Element {0} = ", i);
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            int len = 1, bestValue = 0, bestLen = 1, value = 0;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (arr[i] == arr[i + 1])
+                {
+                    len += 1;
+                    value = arr[i];
+                }
+                else if (bestLen < len)
+                {
+                    bestLen = len;
+                    bestValue = value;
+                    len = 1;
+                }
+                else
+                {
+                    len = 1;
+                }
+            }
+
+            Console.WriteLine("MaxLength is {0} and the value is {1}", bestLen, bestValue);
         }
     }
 }
