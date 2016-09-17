@@ -147,6 +147,55 @@ namespace HelloCSharp
             {
                 Console.Write(arr[k] + " ");
             }
+            
+            /* 7.    Write a program, which reads from the console two integer numbers N and K 
+             * (K<N) and array of N integers. Find those K consecutive elements in the array, 
+             * which have maximal sum.
+             */
+             
+            Console.Write("Enter n for array's lenght: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Enter k < n : ");
+            int k = int.Parse(Console.ReadLine());
+
+            if (k < n)
+            {
+                int[] arr = new int[n];
+
+                for (int i = 0; i < n; i++)
+                {
+                    Console.Write("Element {0} = ", i);
+                    arr[i] = int.Parse(Console.ReadLine());
+                }
+
+                int sum = 0, bestSum = int.MinValue, start = 0, bestStart = 0;
+
+                for (int i = 0; i < n - k + 1; i++)
+                {
+                    for (int r = start; r < start + k; r++)
+                    {
+                        sum += arr[r];
+                    }
+                    if (sum > bestSum)
+                    {
+                        bestSum = sum;
+                        bestStart = start;
+                    }
+                    start += 1;
+                    sum = 0;
+                }
+                Console.Write("The biggest sum is {0}. It is the sum of the following elements : ", bestSum);
+                for (int p = bestStart; p < bestStart + k; p++)
+                {
+                    Console.Write(arr[p] + " ");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter k < n.");
+            }
+            
+            
         }
     }
 }
