@@ -93,12 +93,11 @@ namespace HelloCSharp
                 {
                     len += 1;
                     value = arr[i];
-                }
-                else if (bestLen < len)
-                {
-                    bestLen = len;
-                    bestValue = value;
-                    len = 1;
+                    if (bestLen < len)
+                    {
+                        bestLen = len;
+                        bestValue = value;
+                    }
                 }
                 else
                 {
@@ -107,6 +106,47 @@ namespace HelloCSharp
             }
 
             Console.WriteLine("MaxLength is {0} and the value is {1}", bestLen, bestValue);
+            
+            /* 5.    Write a program, which finds the maximal sequence of consecutively 
+             * placed increasing integers. Example: {3, 2, 3, 4, 2, 2, 4} à {2, 3, 4}.
+             */
+
+            Console.Write("Enter n for array's lenght: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int[] arr = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Element {0} = ", i);
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            int len = 1, bestStart = 0, bestLen = 1, start = 0;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (arr[i] < arr[i + 1])
+                {
+                    len += 1;
+                    if (bestLen < len)
+                    {
+                        bestLen = len;
+                        bestStart = start;
+                    }
+                }
+                else
+                {
+                    len = 1;
+                    start = i + 1;
+                }
+            }
+
+            Console.Write("The max sequence of increasing integers is : ");
+            for (int k = bestStart; k < bestStart + bestLen; k++)
+            {
+                Console.Write(arr[k] + " ");
+            }
         }
     }
 }
