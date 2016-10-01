@@ -16,7 +16,7 @@ namespace HelloCSharp
             /* 4.    Write a program that converts a decimal number to binary one.
              */
 
-            Console.Write("Enter n:");
+            Console.Write("Enter decimalNum:");
             int decimalNum = int.Parse(Console.ReadLine());
 
             string binary;
@@ -26,7 +26,7 @@ namespace HelloCSharp
             /* 5.    Write a program that converts a binary number to decimal one.
              */
 
-            Console.Write("Enter n:");
+            Console.Write("Enter binaryNum:");
             string binaryNum = Console.ReadLine();
 
             int decimalNum;
@@ -36,7 +36,7 @@ namespace HelloCSharp
             /* 6.    Write a program that converts a decimal number to hexademical one.
              */
 
-            Console.Write("Enter n:");
+            Console.Write("Enter decimalNum:");
             int decimalNum = int.Parse(Console.ReadLine());
 
             string hexademical;
@@ -46,12 +46,40 @@ namespace HelloCSharp
             /* 7.    Write a program that converts a hexadecimal number to decimal one.
              */
 
-            Console.Write("Enter n:");
-            string hexadecimal = Console.ReadLine();
+            Console.Write("Enter hexadecimalNum:");
+            string hexadecimalNum = Console.ReadLine();
 
             int decimalNum;
-            decimalNum = Convert.ToInt32(hexadecimal, 16);
+            decimalNum = Convert.ToInt32(hexadecimalNum, 16);
             Console.WriteLine(decimalNum);
+            
+            /* 8.    Write a program that converts a hexadecimal number to binary one.
+             */
+
+            Console.Write("Enter hexadecimalNum:");
+            string hexadecimalNum = Console.ReadLine();
+
+            int decimalNum;
+            decimalNum = Convert.ToInt32(hexadecimalNum, 16);
+
+            string binary;
+            binary = Convert.ToString(decimalNum, 2);
+            Console.WriteLine(binary);
+            
+            /* 9.    Write a program that converts a binary number to hexadecimal one.
+             */
+
+            Console.Write("Enter binaryNum:");
+            string binaryNum = Console.ReadLine();
+
+            int decimalNum;
+            decimalNum = Convert.ToInt32(binaryNum, 2);
+
+            string hexadecimal;
+            hexadecimal = Convert.ToString(decimalNum, 16);
+            Console.WriteLine(hexadecimal);
+            
+            
         }
     }
 }
