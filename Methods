@@ -1,0 +1,124 @@
+namespace HelloCSharp
+{
+    class Program
+    {
+        /* 1.    Write a code that by given name prints on the console "Hello, <name>!" 
+        /*(for example: "Hello, Peter!").
+        */
+        
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your name here: ");
+            string name = Console.ReadLine();
+            PrintName(name);
+        }
+        static void PrintName(string name)
+        {
+            Console.WriteLine("Hello {0}", name
+                );
+                
+        /* 2.    Write a program that finds the greatest number from integers that are read from the console.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the number of integers you want to compare: ");
+            int numInt = int.Parse(Console.ReadLine());
+
+            int[] intArray = new int[numInt];
+            Console.WriteLine("The greatest number in the sequence is: {0}.", GetMax(InputIntegers(numInt, intArray)));        
+        }
+        static int[] InputIntegers(int arrLength, int[] inputInt)
+        {
+            inputInt = new int[arrLength];
+            for (int i = 0; i < inputInt.Length; i++)
+            {
+                Console.Write("{0} integer = ", i + 1);
+                inputInt[i] = int.Parse(Console.ReadLine());
+            }
+            return inputInt;
+        }
+        static int GetMax(int[] maxNumArray)
+        {
+            int maxNum = int.MinValue;
+            for (int i = 0; i < maxNumArray.Length; i++)
+            {
+                if (maxNumArray[i] > maxNum)
+                {
+                    maxNum = maxNumArray[i];
+                }
+            }
+            return maxNum;         
+        }
+        
+        /* 3.    Write a method that returns the English name of the last digit of a given number. 
+         * Example: for 512 prints "two"; for 1024 à "four".
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a number :");
+            int inputNum = int.Parse(Console.ReadLine());
+            Console.WriteLine(GetNameOfLastDigit(inputNum));
+
+        }
+        static string GetNameOfLastDigit(int num)
+        {
+            int lastDigit = num % 10;
+            string nameLastDigit = null;
+            switch (lastDigit)
+            {
+                case 0: nameLastDigit = "zero";
+                    break;
+                case 1: nameLastDigit = "one";
+                    break;
+                case 2:
+                    nameLastDigit = "two";
+                    break;
+                case 3:
+                    nameLastDigit = "three";
+                    break;
+                case 4:
+                    nameLastDigit = "four";
+                    break;
+                case 5:
+                    nameLastDigit = "five";
+                    break;
+                case 6:
+                    nameLastDigit = "six";
+                    break;
+                case 7:
+                    nameLastDigit = "seven";
+                    break;
+                case 8:
+                    nameLastDigit = "eight";
+                    break;
+                case 9:
+                    nameLastDigit = "nine";
+                    break;
+                default:
+                    break;
+            }
+            return nameLastDigit;
+        
+        
+        /* 7.    Write a method that prints the digits of a given decimal number in a reversed order. 
+         * For example 256, must be printed as 652.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter an integer value :");
+            string inputString = Console.ReadLine();
+            Console.WriteLine("Number in reversed order is : {0}", Reverse(inputString));
+        }
+        public static string Reverse(string numString)
+        {
+            char[] charArray = numString.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray); 
+        }
+        
+        
+    }
+}
