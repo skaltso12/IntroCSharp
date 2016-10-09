@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
+using System.Numerics;
+
+namespace HelloCSharp
+{
+    class Program
+    {
+        /* 1.    Write a program to simulate n nested loops from 1 to n.
+             */
+
+        static int numLoops;
+        static int[] intArray;
+        static void Main()
+        {
+            Console.Write("Enter a number n to simulate n nested loops from 1 to n : ");
+            numLoops = int.Parse(Console.ReadLine());
+
+            intArray = new int[numLoops];
+            SimulateNestedLoops(0);           
+        }
+        static void SimulateNestedLoops(int currentCount)
+        {
+            if (currentCount >= numLoops)
+            {
+                PrintArray();
+                return;
+            }
+            for (int counter = 1; counter <= numLoops; counter++)
+            {
+                intArray[currentCount] = counter;
+                SimulateNestedLoops(currentCount + 1);
+            }
+        }
+        static void PrintArray()
+        {
+            for (int i = 0; i < numLoops; i ++)
+            {
+                Console.Write(intArray[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        
+        /* 1.    2.  Write a program to generate all variations with duplicates of n elements class k. 
+             */
+
+        static int numLoops;
+        static int numElements;
+        static int[] intArray;
+        static void Main()
+        {
+            Console.WriteLine("Enter numbers k and n to simulate k nested loops from 1 to n(n > k).");
+            Console.Write("k = ");
+            numLoops = int.Parse(Console.ReadLine());
+            Console.Write("n = ");
+            numElements = int.Parse(Console.ReadLine());
+
+            if (numElements > numLoops)
+            {
+
+                intArray = new int[numLoops];
+                SimulateNestedLoops(0);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+            }
+            
+        }
+        static void SimulateNestedLoops(int currentCount)
+        {
+            if (currentCount >= numLoops)
+            {
+                PrintArray();
+                return;
+            }
+            for (int counter = 1; counter <= numElements; counter++)
+            {
+                intArray[currentCount] = counter;
+                SimulateNestedLoops(currentCount + 1);
+            }
+        }
+        static void PrintArray()
+        {
+            for (int i = 0; i < numLoops; i ++)
+            {
+                Console.Write(intArray[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
