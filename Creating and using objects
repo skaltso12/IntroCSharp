@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
+using System.Numerics;
+
+namespace LeapYearTask1
+{
+    class LeapYearTask1
+    {
+        //1.    Write a program, which reads from the console a year and checks if it is a leap year.
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a year to see whether it is a leap year : ");
+            ushort year = ushort.Parse(Console.ReadLine());
+
+            Console.WriteLine("{0} is a leap year : {1}", year, DateTime.IsLeapYear(year));
+        }
+    }
+}
+
+namespace RandomNumbersTask2
+{
+    class RandomNumbersTask2
+    {
+        //2.    Write a program, which generates and prints on the console 10 random numbers in the range [100, 200].
+        static void Main()
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(" " + rnd.Next(100, 201));
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+namespace DayOfWeekTask3
+{
+    class DayOfWeekTask3
+    {
+        //3.    Write a program, which prints, on the console which day of the week is today.
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DateTime.Today.DayOfWeek);
+        }
+    }
+}
+
+namespace TimeSinceStartTask4
+{
+    class TimeSinceStartTask4
+    {
+        /*4.    Write a program, which prints on the standard output the count of days, hours, and minutes, 
+         * which have passes since the computer is started until the moment of the program execution. 
+         * For the implementation use the class Environment.*/
+        static void Main()
+        {
+            int timeInMillisec, timeInSec, timeInMin, timeInHours, sec, min, hours, days;
+
+            timeInMillisec = Environment.TickCount;
+            timeInSec = timeInMillisec / 1000;
+            timeInMin = timeInSec / 60;
+            timeInHours = timeInMin / 60;
+            days = timeInHours / 24;
+            sec = timeInSec % 60;
+            min = timeInMin % 60;
+            hours = timeInHours % 24;
+            Console.WriteLine("Since the computer has been started {0} day(s),"  
+                + "{1} hours, {2} min and {3} sec have passed.", days, hours, min, sec);
+
+        }
+    }
+}
