@@ -40,3 +40,101 @@ namespace CheckInputData
     }
 }
 
+namespace ReadNumbers
+{
+    class ReadNumbers
+    {
+        /* 8. Write a method ReadNumber(int start, int end) that reads an integer from the console in the range [start…end]. 
+         * In case the input integer is not valid or it is not in the required range throw appropriate exception. 
+         * Using this method, write a program that takes 10 integers a1, a2, …, a10 such that 1 < a1 < … < a10 < 100.
+         */
+
+        static void Main(string[] args)
+        {
+            int count = 0;
+            int[] arrNumbers = new int[10];
+            int previousNumber = 0;
+
+            while (count < 10)
+            {
+                try
+                {
+                    int number = ReadNumber(1, 100);
+                    if (previousNumber >= number)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    arrNumbers[count] = number;
+                    count++;
+                    previousNumber = number;
+                }
+                catch (ArgumentOutOfRangeException argOutofRange)
+                {
+                    Console.WriteLine(argOutofRange.Message);
+                }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(" {0}", arrNumbers[i]);
+            }
+            Console.WriteLine();
+        }
+
+        static int ReadNumber(int start, int end)
+        {
+            int number = 0;
+
+            try
+            {
+                number = int.Parse(Console.ReadLine());
+
+                if (start > number || end < number)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
+            catch (FormatException formExc)
+            {
+                Console.WriteLine(formExc.Message);
+            }
+            catch (ArgumentOutOfRangeException outOfRange)
+            {
+                Console.WriteLine(outOfRange.Message);
+            }
+            catch (OverflowException overFlowExc)
+            {
+                Console.WriteLine(overFlowExc.Message);
+            }
+
+            return number;
+        }
+    }
+}
+
+namespace ReadTextFiles
+{
+    class ReadTextFiles
+    {
+        /*9.    Write a method that takes as a parameter the name of a text file, reads the file 
+         * and returns its content as string. What should the method do if and exception is thrown?
+         */
+
+        static void Main()
+        {
+            Console.Write("Input the name of a text file: ");
+            string fileName = Console.ReadLine();
+            ReadTextFile(fileName);
+        }
+        static void ReadTextFile(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                Console.WriteLine("File {0} does not exist.", filename);
+                return;
+            }
+
+            string toString = File.ReadAllText(filename, Encoding.UTF8);
+            Console.WriteLine(toString);
+        }
+    }
+}
