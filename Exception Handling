@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
+using System.Numerics;
+
+namespace CheckInputData
+{
+    class CheckInputData
+    {
+        /*7.    Write a program that takes a positive integer from the console 
+         * and prints the square root of this integer. If the input is negative or invalid 
+         * print "Invalid Number" in the console. In all cases print "Good Bye".*/
+
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Enter a positive number : ");
+                uint number = uint.Parse(Console.ReadLine());
+
+                Console.WriteLine(Math.Sqrt(number));
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Invalid input");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input");
+            }
+            finally
+            {
+                Console.WriteLine("Goodbye");
+            }
+        }
+    }
+}
+
